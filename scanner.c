@@ -22,7 +22,7 @@ int token_val;        // value of current token (mainly for number)
 enum { Char = 1, Int, Ptr };      // support data type
 
 struct symbols {
-    int token;
+    int token;      // token use the enum
     int hash;       // hash code
     char *name;     // tag string
     int scope;      // function or var(global or local)
@@ -31,7 +31,7 @@ struct symbols {
     int gloclass;   // if the same name with global var
     int glotype;
     int glovalue;
-    int char_number;
+    int char_number; // symbol name alphabet count
     struct symbols *next;
 };
 
@@ -52,7 +52,7 @@ struct keyword_symbols key_symbols[8];
 void print_var_name(struct symbols *current);
 int parameter;
 
-void keyword()
+void keyword()    // push key word into the keyword_symbols
 {
     int hash = 0;
     int i = 0;
@@ -81,7 +81,7 @@ void keyword()
     return ;
 }
 
-void next()
+void next()          // get next token
 {
     int hash;
     int i;
@@ -264,7 +264,7 @@ void next()
     return ;
 }
 
-void match(int tk)
+void match(int tk)    // match current token
 {
     if (token == tk) {
         next();
