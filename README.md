@@ -1,6 +1,7 @@
 # Compiler
 `gcc -Wall -g -o scanner scanner.c`
- `./scanner your_file.c`
+ 
+`./scanner your_file.c`
 
 `./scanner test.c`
 
